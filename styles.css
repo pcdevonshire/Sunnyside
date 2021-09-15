@@ -1,0 +1,591 @@
+/* ----- Fonts ----- */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap');
+
+/* ----- Universal styles ----- */
+
+html {
+    box-sizing: border-box;
+    background-color: var(--backgroundWhite);
+    color: var(--black);
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+:root {
+    --blue: hsl(200, 100%, 62%);
+    --backgroundWhite: #fffbf8;
+    --white: #ffffff;
+    --black: #222d39;
+    --softRed: #ffd5ce;
+    --yellow: #fef2b6;
+    --darkCyan: hsl(167, 40%, 24%);
+    --darkBlue: hsl(198, 62%, 26%);
+    --green: #90d4c5;
+    --gray: #a6a6a6;
+    --darkGray: #5c5d5e;
+}
+
+::selection {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+/* ----- Hide scrollbar ----- */
+
+body {
+    margin: 0 auto;
+    height: 100vh;
+    min-width: 285px;
+    max-width: 1980px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+:is(p, a, span) {
+    font-family: 'Barlow', sans-serif;
+}
+
+:is(.contact, h1, h2, .services a, h3, h4, h5) {
+    font-family: 'Fraunces', serif;
+}
+
+/* ----- Header styles ----- */
+
+.header {
+    background-image: url(images/mobile/image-header.jpg);
+    background-size: cover;
+    background-position: center center;
+    height: 60vh;
+    padding: 1em;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+nav li:first-child {
+    margin-right: auto;
+    transition: all 0.2s ease-in-out;
+  }
+
+nav li {
+    transition: transform 0.2s ease-in-out;
+}
+
+nav a {
+    color: var(--white);
+}
+
+nav ul li:last-of-type {
+    font-size: 0.85rem;
+    padding: 1em 1.5em;
+    border-radius: 25px;
+    background-color: var(--white);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.contact {
+    color: var(--black);
+    transition: color 0.2s ease-in-out;
+}
+
+.hero {
+    text-align: center;
+}
+
+h1 {
+    color: var(--white);
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin: 2em 0 1em 0;
+}
+
+.hero img {
+    margin-bottom: 7em;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translateY(0%); }
+    50% { transform: translateY(10%); }
+    100% { transform: translateY(0%); }
+}
+
+/* ----- Services styles ----- */
+
+.brand, .audience {
+    text-align: center;
+    padding: 3em 1em;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.75em;
+}
+
+p {
+    color: var(--darkGray);
+    font-size: 1.125rem;
+    line-height: 1.5;
+    max-width: 95%;
+    margin: 0 auto 1.5em auto;
+}
+
+.services a {
+    color: var(--black);
+    font-weight: 900;
+    padding: 0 0.5em;
+    border-radius: 15px;
+}
+
+.brand a {
+    background-color: var(--yellow);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.audience a {
+    background-color: var(--softRed);
+    transition: background-color 0.2s ease-in-out;
+}
+
+h3 {
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin-bottom: 1em;
+}
+
+.design {
+    color: var(--darkCyan);
+}
+
+.design, .photography {
+    text-align: center;
+    padding: 25em 1em 4em 1em;
+}
+
+.design p {
+    margin-bottom: 0;
+}
+
+.design {
+    background: url(images/mobile/image-graphic-design.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.photography {
+    background: url(images/mobile/image-photography.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.photography {
+    color: var(--darkBlue);
+}
+
+/* ----- Testimonials styles ----- */
+
+.testimonials {
+    margin: 8em 0 5em 0;
+    padding: 0 1em;
+    text-align: center;
+}
+
+.people {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h4 {
+    font-size: 1.25rem;
+    letter-spacing: 3px;
+    margin-bottom: 2em;
+}
+
+h4, span {
+    color: var(--gray);
+}
+
+.people img {
+    border-radius: 50%;
+    width: 25%;
+    margin: 2em 0;
+}
+
+.thomas img, .jennie img {
+    margin-top: 4em;
+}
+
+h5 {
+    font-size: 1.25rem;
+    font-weight: 900;
+    margin-bottom: 0.75em;
+}
+
+span {
+    margin-bottom: 3em;
+}
+
+/* ----- Bottom images styles ----- */
+
+.bottom-images {
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr;
+    grid-template-areas: "1 2"
+                         "3 4";
+}
+
+/* ----- Footer styles ----- */
+
+footer {
+    background-color: var(--green);
+    padding: 0 2em 5em 2em;
+    text-align: center;
+}
+
+footer > img {
+    margin: 5em 0 3em 0;
+    width: 60%;
+    transition: all 0.2s ease-in-out;
+}
+
+.footer-nav a {
+    color: var(--darkCyan);
+    font-size: 1.25rem;
+    transition: color 0.2s ease-in-out;
+}
+
+footer img {
+    filter: brightness(0) saturate(100%) invert(27%) sepia(45%) saturate(433%) hue-rotate(116deg) brightness(94%) contrast(95%);
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5em;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em;
+    margin-top: 5em;
+}
+
+.icons img {
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+/* ----- Hover effects ----- */
+
+nav li:first-child:hover {
+    transform: scale(110%);
+    cursor: pointer;
+  }
+
+nav li:is(:nth-child(2),:nth-child(3),:nth-child(4)):hover {
+    transform: scale(120%);
+}
+
+nav ul li:last-of-type:hover {
+    background-color: #73cdff;
+}
+
+.contact:hover {
+    color: var(--white);
+}
+
+.brand a:hover {
+    background-color: hsl(51, 100%, 49%);
+}
+
+.audience a:hover {
+    background-color: hsl(7, 99%, 70%);
+}
+
+footer > img:hover {
+    transform: scale(110%);
+    filter: brightness(100);
+    cursor: pointer;
+}
+
+.footer-nav a:hover {
+    color: var(--white);
+}
+
+.icons img:hover {
+    transform: scale(120%);
+    filter: brightness(100);
+}
+
+/* 
+    ----- Responsive Styles ----- 
+
+                |
+                |
+                |
+                |
+                |
+                |
+                |
+                |
+                V
+
+*/
+
+@media only screen and (max-width: 400px) {
+
+    .design, .photography {
+        padding: 85vw 1em 1em 1em;
+    }
+
+}
+
+@media only screen and (min-width: 750px) {
+
+    .header {
+        padding: 4em;
+        background-image: url(images/desktop/image-header.jpg);
+        height: 100vh;
+    }
+
+    nav ul {
+        gap: 4em;
+    }
+
+    nav a > img {
+        width: 15em;
+    }
+
+    nav li:is(:nth-child(2),:nth-child(3),:nth-child(4)) {
+        font-size: 1.5rem;
+    }
+
+    nav ul li:last-of-type {
+        font-size: 1.25rem;
+        border-radius: 40px;
+    }
+    
+    h1 {
+        font-size: clamp(2.5rem, 4vw, 5rem);
+        margin: 1.75em 0 1.5em 0;
+        letter-spacing: 10px;
+    }
+    
+    .hero img {
+        width: 3em;
+        margin-bottom: 20em;
+    }
+
+    .services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: "Brand Egg"
+                             "Cup   Audience"
+                             "Design Photo";
+    }
+
+    .services > img:first-of-type {
+        grid-area: Egg;
+    }
+
+    .services img {
+        width: 100%;
+    }
+
+    .brand, .audience {
+        text-align: center;
+        padding: 1vw;
+    }
+
+    h2 {
+        font-size: clamp(2rem, 2.5vw, 3rem);
+    }
+
+    .brand p, .audience p {
+        font-size: clamp(1.125rem, 1.05vw, 1.3rem);
+        margin-bottom: 2em;
+    }
+
+    .services a {
+        font-size: clamp(1rem, 1vw, 1.25rem);
+    }
+
+    h3 {
+        font-size: clamp(1.75rem, 1.75vw, 2.3rem);
+    }
+
+    .design {
+        background: url(images/desktop/image-graphic-design.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    .photography {
+        background: url(images/desktop/image-photography.jpg);
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .design, .photography {
+        padding: 40vw 1em 1em 1em;
+    }
+
+    .design p, .photography p {
+        font-size: clamp(1.125rem, 1.05vw, 1.3rem);
+        max-width: 50%;
+        margin: 0 auto;
+    }
+
+    p {
+        margin: 0 0 1.5em 0;
+    }
+
+    .testimonials {
+        margin: 10em 0 10em 0;
+    }
+
+    h4 {
+        font-size: 1.75rem;
+        letter-spacing: 5px;
+    }
+
+    .people {
+        flex-direction: row;
+    }
+
+    .emily, .thomas, .jennie {
+        max-width: 450px;
+    }
+
+    .people img {
+        width: 100px;
+        margin: 4em auto;
+    }
+
+    .people p {
+        max-width: 90%;
+        margin: 0 auto 4em auto;
+        font-size: clamp(1.125rem, 1vw, 1.25rem); 
+        line-height: 2;
+    }
+
+    h5 {
+        font-size: clamp(1.25rem, 1.2vw, 1.5rem); 
+    }
+    
+    span {
+        font-size: clamp(1rem, 0.9vw, 1.15rem); 
+    }
+
+    .bottom-images {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: "1 2 3 4";
+    }
+
+    .bottom-images img {
+        width: 100%;
+    }
+
+    footer > img {
+        width: 200px;
+    }
+
+    .footer-nav {
+        gap: 4em;
+    }
+
+    .footer-nav a {
+        font-size: clamp(1.25rem, 1.25vw, 1.5rem);
+    }
+
+    .icons {
+        gap: 2em;
+        margin-top: 6.5em;
+    }
+
+    .icons img {
+        width: 25px;
+    }
+
+}
+
+@media only screen and (min-width: 825px) {
+    
+    .brand, .audience {
+        padding: 3vw;
+    }
+
+}
+
+@media only screen and (min-width: 925px) {
+
+    .brand, .audience {
+        text-align: left;
+        padding: 5vw;
+    }
+
+}
+
+@media only screen and (min-width: 1050px) {
+
+    /* Desktop nav layout here */
+
+    .design, .photography {
+        padding: 25vw 1em 0 1em;
+    }
+
+}
+
+@media only screen and (min-width: 1255px) {
+
+    .services {
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .brand, .audience {
+        padding: 10vw;
+    }
+
+}
