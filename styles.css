@@ -41,7 +41,7 @@ html {
 body {
     margin: 0 auto;
     height: 100vh;
-    min-width: 285px;
+    min-width: 330px;
     max-width: 1980px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -84,20 +84,15 @@ a {
     background-size: cover;
     background-position: center center;
     height: 60vh;
-    padding: 1em;
+    padding: 2em;
+    position: relative;
 }
 
-nav ul {
+nav > ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1em;
 }
-
-nav li:first-child {
-    margin-right: auto;
-    transition: all 0.2s ease-in-out;
-  }
 
 nav li {
     transition: transform 0.2s ease-in-out;
@@ -107,15 +102,46 @@ nav a {
     color: var(--white);
 }
 
-nav ul li:last-of-type {
-    font-size: 0.85rem;
-    padding: 1em 1.5em;
-    border-radius: 25px;
+.logo {
+    margin-right: auto;
+    transition: all 0.2s ease-in-out;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 6em;
+    left: 2em;
+    right: 2em;
+    height: 325px;
     background-color: var(--white);
+    text-align: center;
+    padding: 3em 2em;
+    z-index: 5;
+    border-radius: 15px;
+    margin: 0 auto;
+    display: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.mobile-menu li:last-of-type {
+    font-size: 0.85rem;
+    padding: 1.25em;
+    border-radius: 40px;
+    background-color: #fdd700;
+    width: 150px;
+    margin: 0 auto;
     transition: background-color 0.2s ease-in-out;
 }
 
+.mobile-menu ul li a:not(.contact) {
+    display: inline-block;
+    margin-bottom: 1.75em;
+    color: var(--darkGray);
+    font-size: 1.25rem;
+}
+
 .contact {
+    font-size: 1.1rem;
     color: var(--black);
     transition: color 0.2s ease-in-out;
 }
@@ -315,48 +341,6 @@ footer img {
     transition: all 0.2s ease-in-out;
 }
 
-/* ----- Hover effects ----- */
-
-nav li:first-child:hover {
-    transform: scale(110%);
-    cursor: pointer;
-  }
-
-nav li:is(:nth-child(2),:nth-child(3),:nth-child(4)):hover {
-    transform: scale(120%);
-}
-
-nav ul li:last-of-type:hover {
-    background-color: #73cdff;
-}
-
-.contact:hover {
-    color: var(--white);
-}
-
-.brand a:hover {
-    background-color: hsl(51, 100%, 49%);
-}
-
-.audience a:hover {
-    background-color: hsl(7, 99%, 70%);
-}
-
-footer > img:hover {
-    transform: scale(110%);
-    filter: brightness(100);
-    cursor: pointer;
-}
-
-.footer-nav a:hover {
-    color: var(--white);
-}
-
-.icons img:hover {
-    transform: scale(120%);
-    filter: brightness(100);
-}
-
 /* 
     ----- Responsive Styles ----- 
 
@@ -382,27 +366,60 @@ footer > img:hover {
 
 @media only screen and (min-width: 750px) {
 
+    
+    /* ----- Hover effects ----- */
+
+    .mobile-menu {
+        top: 8em;
+    }
+
+    nav li:first-child:hover {
+        transform: scale(110%);
+        cursor: pointer;
+    }
+
+    .mobile-menu li:is(:nth-child(1),:nth-child(2),:nth-child(3)):hover {
+        transform: scale(120%);
+    }
+
+    nav ul li:last-of-type:hover {
+        background-color: #73cdff;
+    }
+
+    .contact:hover {
+        color: var(--white);
+        transform: scale(100%);
+    }
+
+    .brand a:hover {
+        background-color: hsl(51, 100%, 49%);
+    }
+
+    .audience a:hover {
+        background-color: hsl(7, 99%, 70%);
+    }
+
+    footer > img:hover {
+        transform: scale(110%);
+        filter: brightness(100);
+        cursor: pointer;
+    }
+
+    .footer-nav a:hover {
+        color: var(--white);
+    }
+
+    .icons img:hover {
+        transform: scale(120%);
+        filter: brightness(100);
+    }
+
+    /* ----- Continue Responsive Styles ----- */
+
     .header {
         padding: 4em;
         background-image: url(images/desktop/image-header.jpg);
         height: 100vh;
-    }
-
-    nav ul {
-        gap: 4em;
-    }
-
-    nav a > img {
-        width: 15em;
-    }
-
-    nav li:is(:nth-child(2),:nth-child(3),:nth-child(4)) {
-        font-size: 1.5rem;
-    }
-
-    nav ul li:last-of-type {
-        font-size: 1.25rem;
-        border-radius: 40px;
     }
     
     h1 {
@@ -561,6 +578,58 @@ footer > img:hover {
 
 @media only screen and (min-width: 925px) {
 
+    nav a > img {
+        width: 15em;
+    }
+
+    .mobile-menu {
+        position: static;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: auto;
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        display: block;
+    }
+
+    .mobile-menu ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3em;
+    }
+
+    .mobile-menu ul li a:not(.contact) {
+        display: inline;
+        margin-bottom: 0;
+        color: var(--white);
+        font-size: 1.25rem;
+    }
+
+    .contact {
+        display: inline;
+    }
+    
+    .mobile-menu li:last-of-type {
+        background-color: var(--white);
+    }
+
+    .burger {
+        display: none;
+    }
+
+    nav li:is(:nth-child(2),:nth-child(3),:nth-child(4)) {
+        display: inline;
+        font-size: 1.5rem;
+    }
+
+    nav ul li:last-of-type {
+        font-size: 1.25rem;
+        border-radius: 40px;
+    }
+
     .brand, .audience {
         text-align: left;
         padding: 5vw;
@@ -569,8 +638,6 @@ footer > img:hover {
 }
 
 @media only screen and (min-width: 1050px) {
-
-    /* Desktop nav layout here */
 
     .design, .photography {
         padding: 25vw 1em 0 1em;
