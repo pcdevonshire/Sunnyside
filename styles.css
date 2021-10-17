@@ -5,7 +5,8 @@
 /* ----- Universal styles ----- */
 
 html {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     background-color: var(--backgroundWhite);
     color: var(--black);
     scroll-behavior: smooth;
@@ -14,7 +15,8 @@ html {
 *, *::before, *::after {
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;
 }
 
 :root {
@@ -29,6 +31,11 @@ html {
     --green: #90d4c5;
     --gray: #a6a6a6;
     --darkGray: #5c5d5e;
+}
+
+::-moz-selection {
+    background-color: var(--blue);
+    color: var(--white);
 }
 
 ::selection {
@@ -89,13 +96,23 @@ a {
 }
 
 nav > ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 nav li {
+    -webkit-transition: -webkit-transform 0.2s ease-in-out;
+    transition: -webkit-transform 0.2s ease-in-out;
+    -o-transition: transform 0.2s ease-in-out;
     transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
 nav a {
@@ -104,6 +121,8 @@ nav a {
 
 .logo {
     margin-right: auto;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 
@@ -120,6 +139,8 @@ nav a {
     border-radius: 15px;
     margin: 0 auto;
     display: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 
@@ -130,6 +151,8 @@ nav a {
     background-color: #fdd700;
     width: 150px;
     margin: 0 auto;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -o-transition: background-color 0.2s ease-in-out;
     transition: background-color 0.2s ease-in-out;
 }
 
@@ -143,6 +166,8 @@ nav a {
 .contact {
     font-size: 1.1rem;
     color: var(--black);
+    -webkit-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out;
 }
 
@@ -160,13 +185,20 @@ h1 {
 
 .hero img {
     margin-bottom: 7em;
-    animation: pulse 1s infinite;
+    -webkit-animation: pulse 1s infinite;
+            animation: pulse 1s infinite;
+}
+
+@-webkit-keyframes pulse {
+    0% { -webkit-transform: translateY(0%); transform: translateY(0%); }
+    50% { -webkit-transform: translateY(10%); transform: translateY(10%); }
+    100% { -webkit-transform: translateY(0%); transform: translateY(0%); }
 }
 
 @keyframes pulse {
-    0% { transform: translateY(0%); }
-    50% { transform: translateY(10%); }
-    100% { transform: translateY(0%); }
+    0% { -webkit-transform: translateY(0%); transform: translateY(0%); }
+    50% { -webkit-transform: translateY(10%); transform: translateY(10%); }
+    100% { -webkit-transform: translateY(0%); transform: translateY(0%); }
 }
 
 /* ----- Services styles ----- */
@@ -199,11 +231,15 @@ p {
 
 .brand a {
     background-color: var(--yellow);
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -o-transition: background-color 0.2s ease-in-out;
     transition: background-color 0.2s ease-in-out;
 }
 
 .audience a {
     background-color: var(--softRed);
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -o-transition: background-color 0.2s ease-in-out;
     transition: background-color 0.2s ease-in-out;
 }
 
@@ -251,10 +287,19 @@ h3 {
 }
 
 .people {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 h4 {
@@ -290,10 +335,13 @@ span {
 /* ----- Bottom images styles ----- */
 
 .bottom-images {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr, 1fr;
     grid-template-columns: 1fr, 1fr;
+    -ms-grid-rows: 1fr, 1fr;
     grid-template-rows: 1fr, 1fr;
-    grid-template-areas: "1 2"
+        grid-template-areas: "1 2"
                          "3 4";
 }
 
@@ -308,36 +356,55 @@ footer {
 footer > img {
     margin: 5em 0 3em 0;
     width: 60%;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 
 .footer-nav a {
     color: var(--darkCyan);
     font-size: 1.25rem;
+    -webkit-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out;
 }
 
 footer img {
-    filter: brightness(0) saturate(100%) invert(27%) sepia(45%) saturate(433%) hue-rotate(116deg) brightness(94%) contrast(95%);
+    -webkit-filter: brightness(0) saturate(100%) invert(27%) sepia(45%) saturate(433%) hue-rotate(116deg) brightness(94%) contrast(95%);
+            filter: brightness(0) saturate(100%) invert(27%) sepia(45%) saturate(433%) hue-rotate(116deg) brightness(94%) contrast(95%);
 }
 
 .footer-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     gap: 2.5em;
 }
 
 .icons {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     gap: 1.5em;
     margin-top: 5em;
 }
 
 .icons img {
     width: 100%;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
 
@@ -374,12 +441,16 @@ footer img {
     }
 
     nav li:first-child:hover {
-        transform: scale(110%);
+        -webkit-transform: scale(110%);
+            -ms-transform: scale(110%);
+                transform: scale(110%);
         cursor: pointer;
     }
 
     .mobile-menu li:is(:nth-child(1),:nth-child(2),:nth-child(3)):hover {
-        transform: scale(120%);
+        -webkit-transform: scale(120%);
+            -ms-transform: scale(120%);
+                transform: scale(120%);
     }
 
     nav ul li:last-of-type:hover {
@@ -388,7 +459,9 @@ footer img {
 
     .contact:hover {
         color: var(--white);
-        transform: scale(100%);
+        -webkit-transform: scale(100%);
+            -ms-transform: scale(100%);
+                transform: scale(100%);
     }
 
     .brand a:hover {
@@ -400,8 +473,11 @@ footer img {
     }
 
     footer > img:hover {
-        transform: scale(110%);
-        filter: brightness(100);
+        -webkit-transform: scale(110%);
+            -ms-transform: scale(110%);
+                transform: scale(110%);
+        -webkit-filter: brightness(100);
+                filter: brightness(100);
         cursor: pointer;
     }
 
@@ -410,8 +486,11 @@ footer img {
     }
 
     .icons img:hover {
-        transform: scale(120%);
-        filter: brightness(100);
+        -webkit-transform: scale(120%);
+            -ms-transform: scale(120%);
+                transform: scale(120%);
+        -webkit-filter: brightness(100);
+                filter: brightness(100);
     }
 
     /* ----- Continue Responsive Styles ----- */
@@ -434,10 +513,13 @@ footer img {
     }
 
     .services {
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
+        -ms-grid-rows: (auto)[3];
         grid-template-rows: repeat(3, auto);
-        grid-template-areas: "Brand Egg"
+            grid-template-areas: "Brand Egg"
                              "Cup   Audience"
                              "Design Photo";
     }
@@ -508,7 +590,10 @@ footer img {
     }
 
     .people {
-        flex-direction: row;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
     }
 
     .emily, .thomas, .jennie {
@@ -536,9 +621,11 @@ footer img {
     }
 
     .bottom-images {
+        -ms-grid-columns: (1fr)[4];
         grid-template-columns: repeat(4, 1fr);
+        -ms-grid-rows: 1fr;
         grid-template-rows: 1fr;
-        grid-template-areas: "1 2 3 4";
+            grid-template-areas: "1 2 3 4";
     }
 
     .bottom-images img {
@@ -568,6 +655,14 @@ footer img {
 
 }
 
+@media only screen and (min-width: 750px){
+
+    .services > img:first-of-type {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+    }
+}
+
 @media only screen and (min-width: 825px) {
     
     .brand, .audience {
@@ -595,9 +690,15 @@ footer img {
     }
 
     .mobile-menu ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         gap: 3em;
     }
 
@@ -648,6 +749,7 @@ footer img {
 @media only screen and (min-width: 1255px) {
 
     .services {
+        -ms-grid-rows: (1fr)[3];
         grid-template-rows: repeat(3, 1fr);
     }
 
@@ -660,6 +762,7 @@ footer img {
 @media only screen and (min-width: 1981px) {
 
     .services {
+        -ms-grid-rows: (auto)[3];
         grid-template-rows: repeat(3, auto);
     }
 
